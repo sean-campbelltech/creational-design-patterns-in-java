@@ -3,8 +3,9 @@ package com.campbelltech;
 public class Main {
     public static void main(String[] args) {
         Country country = Country.SPAIN;
-        Language language = InternationProvider.createLanguage(country);
-        CapitalCity capital = InternationProvider.createCapital(country);
+        InternationalFactory factory = InternationalProvider.create(country);
+        Language language = factory.createLanguage();
+        CapitalCity capital = factory.createCapital();
 
         System.out.println("Country: " + country);
         System.out.println("Capital: " + capital.getClass().getSimpleName());
